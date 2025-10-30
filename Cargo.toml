@@ -1,0 +1,36 @@
+[package]
+name = "soc-log-pipeline"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "Resilient SOC log forwarding and monitoring pipeline with zero data loss"
+license = "MIT"
+
+[dependencies]
+# Serialization and log handling
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Log parsing and processing
+regex = "1.10"
+
+# Logging and tracing
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Error handling
+thiserror = "1.0"
+
+# Date and time
+chrono = { version = "0.4", features = ["serde"] }
+
+# Security and integrity
+sha2 = "0.10"  # Log integrity verification
+
+[dev-dependencies]
+tempfile = "3.8"
+pretty_assertions = "1.4"
+
+[[bin]]
+name = "working-soc-demo"
+path = "src/working_soc_demo.rs"
